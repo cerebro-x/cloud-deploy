@@ -3,7 +3,7 @@
   - name: Wait for instances to be reachable
     wait_for_connection:
       sleep: 5
-      timeout: 600
+      timeout: 300
 
   - name: Install subscription-manager
     yum:
@@ -20,6 +20,6 @@
       state: present
       activationkey: "{{ rhactivationkey }}"
       org_id: "{{ rhorg_id }}"
-      auto_attach: true
+      #auto_attach: true
     become: yes
   when: tags.cloud_provider == "aws"

@@ -31,7 +31,7 @@
           region: "{{ ec2_region }}"
           filters:
             "tag:application": "{{ application }}"
-            "tag:provisioner": "mford"
+            "tag:provisioner": "mixiong"
             "instance-state-name": "running"
         register: instance_info
 
@@ -49,14 +49,14 @@
           region: "{{ ec2_region }}"
           filters:
             "tag:application": "{{ application }}"
-            "tag:provisioner": "mford"
+            "tag:provisioner": "mixiong"
         register: route_table_info
 
       # - debug:
       #     var: route_table_info.route_tables[0].id
 
       - name: Delete Route Table
-        ec2_vpc_route_table:
+        ec2_vpc_route_table:s
           region: "{{ ec2_region }}"
           vpc_id: "{{ vpc_net_facts.vpcs[0].id }}"
           route_table_id: "{{ route_table_info.route_tables[0].id }}"

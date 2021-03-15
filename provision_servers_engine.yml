@@ -49,7 +49,7 @@
         region: "{{ ec2_region }}"
         filters:
           "tag:application": "{{ application }}"
-          "tag:provisioner": "mford"
+          "tag:provisioner": "mixiong"
       register: subnet_info
 
     # - debug:
@@ -67,7 +67,7 @@
         wait: "{{ ec2_wait }}"
         vpc_subnet_id: "{{ subnet_info.subnets[0].id }}"
         instance_tags:
-          provisioner: mford
+          provisioner: mixiong
           application: "{{ application }}"
           Name: "{{ application }}"
           demo: appdeployment
